@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CBT Sekolah - Smart Exam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8jYzi3gWfV8A+fW9dJ+8YQalQ2zQfeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div>
+            <h1>Smart CBT</h1>
+            <small>SD & SMP Edition</small>
+          </div>
+        </div>
+        <nav id="menuList"></nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <button class="icon-btn" id="menuToggle" aria-label="toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-right">
+            <div id="sessionInfo">Belum login</div>
+            <button class="danger" id="logoutBtn" hidden>Logout</button>
+          </div>
+        </header>
+
+        <section id="loginView" class="view active">
+          <div class="card login-card">
+            <h2>Login CBT</h2>
+            <p>Masuk sebagai Admin, Guru, Pengawas, atau Siswa.</p>
+            <form id="loginForm" class="grid-form">
+              <label>
+                Username
+                <input type="text" name="username" required />
+              </label>
+              <label>
+                Password
+                <input type="password" name="password" required />
+              </label>
+              <label>
+                Role
+                <select name="role" required>
+                  <option value="admin">Admin Utama</option>
+                  <option value="guru">Guru</option>
+                  <option value="pengawas">Pengawas</option>
+                  <option value="siswa">Siswa</option>
+                </select>
+              </label>
+              <button type="submit" class="primary">Masuk</button>
+            </form>
+            <p class="muted" id="loginMessage"></p>
+          </div>
+        </section>
+
+        <section id="dashboardView" class="view"></section>
+
+        <section id="examView" class="view">
+          <div class="card">
+            <div class="exam-header">
+              <h3 id="examTitle">Ujian Aktif</h3>
+              <div class="timer" id="timer">00:00:00</div>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress" id="progressBar"></div>
+            </div>
+            <div id="questionContainer"></div>
+            <div class="exam-actions">
+              <button id="prevBtn">Sebelumnya</button>
+              <button id="nextBtn">Berikutnya</button>
+              <button id="submitExamBtn" class="primary">Submit</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
